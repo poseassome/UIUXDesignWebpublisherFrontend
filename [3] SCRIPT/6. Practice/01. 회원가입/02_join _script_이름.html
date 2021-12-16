@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <style>
+    body,
+    input,
+    select,
+    option,
+    button {
+      font-size: 24px
+    }
+
+    input[type=checkbox] {
+      width: 24px;
+      height: 24px
+    }
+  </style>
+
+  <script type="text/javascript">
+    function form_check() {
+      // alert("TEST");       // <-- 작동하는지 test용
+
+      // 객체생성
+      var uname = document.getElementById("uname");
+
+      // null은 그냥 칸 자체가 없다의 개념이므로 "" 사용 (사이에 띄어쓰기 하면 x)
+      // uname.value = "" 로 작성하면 버튼을 누르면 value가 ""로 바뀜 (== 비교연산자 사용)
+      if (uname.value == "" /* 이름을 입력하지 않았다 */) { /* 면 */
+        /* 사용자에게 알려주기 */
+        alert("이름을 입력하세요.");
+
+        // 커서 이동하기
+        uname.focus();
+
+        // 페이지 넘어가지 마라
+        return false;
+        /* 근데 이거 써도 페이지 넘어간다.
+        버튼(submit)은 무조건 보내야되는 거라서.
+
+        그래서 form이 보낼 때 검사하도록 수정함.
+
+        <button>에서 onclick="form_check()" 삭제
+        <form>에 onsubmit="form_check()" 추가
+          --> submit도 하고 체크도 해줘     (그래도 페이지 넘어간다.)
+          ----> return 추가 */
+      };
+
+      // ~~~.submit()
+
+    };
+  </script>
+</head>
+
+<body>
+  <form name="join_form" action="insert.php" method="get" onsubmit="return form_check()">
+    <!-- 회원가입은 method="post"가 맞지만 임시로 get 놓고 작업 -->
+    <!-- 데이터를 주소창에 포함해서 보낼건지(get) , 감춰서 보낼건지(post) -->
+    <!-- action은 데이터를 처리할 process의 위치 -->
+    <fieldset>
+      <legend>회원가입</legend>
+      <p>
+        <label for="u_name">이름</label>
+        <input type="text" name="u_name" id="uname">
+      </p>
+
+      <p>
+        <label for="uid">아이디</label>
+        <input type="text" name="uid" id="uid">
+        <button type="button">아이디 중복확인</button>
+      </p>
+
+      <p>
+        <label for="pwd">비밀번호</label>
+        <!-- <input type="password" name="pwd" id="pwd"> -->
+        <input type="text" name="pwd" id="pwd">
+      </p>
+
+      <p>
+        <label for="repwd">비밀번호 확인</label>
+        <!-- <input type="password" name="repwd" id="repwd"> -->
+        <input type="text" name="repwd" id="repwd">
+      </p>
+
+      <p>
+        <label for="repwd">전화번호</label>
+        <input type="text" name="mobile1" id="mobile1"> -
+        <input type="text" name="mobile2" id="mobile2"> -
+        <input type="text" name="mobile3" id="mobile3">
+      </p>
+
+      <p>
+        <label for="">이메일</label>
+        <input type="text" name="email_id" id="email_id"> @
+        <input type="text" name="email_dns" id="email_dns">
+        <select name="email_sel" id="email_sel">
+          <option value="">직접 입력</option>
+          <option value="naver.com">NAVER</option>
+          <option value="hanmail.net">DAUM</option>
+          <option value="gmail.com">GOOGLE</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="repwd">생년월일</label>
+        <input type="text" name="birth" id="birth">
+      </p>
+
+      <p>
+        <label for="repwd">주소</label>
+        <input type="text" name="birth" id="birth" size="5">
+        <button type="button">주소검색</button>
+        <br>
+        기본주소 <input type="text" name="" id="" size="30">
+        <br>
+        상세주소 <input type="text" name="" id="" size="30">
+      </p>
+
+      <p>
+        <input type="checkbox" name="agree" id="agree">
+        약관 동의
+      </p>
+
+      <p>
+        <button type="submit">회원가입</button>
+        <!-- submit은 데이터를 보내주는 역할 -->
+      </p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

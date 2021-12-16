@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼을 눌러서 글자 출력하기</title>
+  <style tyep="text/css">
+
+  </style>
+
+  <script type="text/javascript">
+    function printText() {
+      // object.method( )
+      // object.property = value
+
+      // *사용할 메소드
+      // getElementById("선택할 요소의 ID값")
+
+      document.getElementById("txt1").value = "글자 출력하기";
+      // <body>에 가면 "txt1"이란 ID를 가지고 있는 태그를 가지고와라
+
+
+      // 실무에서는 이렇게 사용
+      let tf = document.getElementById("txt1");
+      // if는 <input>을 가리킨다.
+      tf.value = "글자 출력하기";       // 변수의 재사용성
+    }
+  </script>
+</head>
+
+<body>
+  <form name="form1" action="" method="">
+    <p>* 버튼을 클릭하면 텍스트 필드에 글자가 나타납니다.</p>
+    <p>
+      <input type="text" name="txt1" id="txt1">
+      <button type="button" onclick="printText()">글자 출력</button>
+    </p>
+  </form>
+</body>
+
+</html>

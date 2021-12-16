@@ -1,0 +1,42 @@
+xampp control panel에서 Apache, MySQL 'start'
+Apache 실행하면, 닷홈에 계정을 만든 것처럼 가상의 공간을 제공해줌.
+
+* roofback address
+  localhost 또는 127.0.0.1
+  (모든 컴퓨터의 roofback 주소는 동일한다.)
+
+  whois 홈페이지에서 웹사이트의 정보를 보여준다.
+
+  cmd창에 ipconfig를 입력하면 정보를 알 수 있음.
+  뒤에 /all를 붙이면 더 자세한 정보 볼 수 있음.
+
+
+* DNS (Domain Name Server)
+  IP ==> DNS ==> NAME
+  원래 컴퓨터의 이름은 숫자로 되어 있다.
+  내 컴퓨터를 웹서버처럼 만들었을 때,
+  컴퓨터의 이름을 글자로 만들었을 때의 이름은 localhost이다.
+
+
+* Apache 실행
+  브라우저에 http://localhost 입력했을 때 창이 뜨면 정상 작동 중이다.
+  xampp 폴더에는 phpMyAdmin 이 있다.
+  브라우저에 http://localhost/phpmyadmin 입력.
+  ==> MySQL를 GUI로 볼 수 있게 됨.
+
+
+Auto_increment은 한 테이블에 한 번만 사용한다.
+Media type은 DBMS 지원여부에 따라 다르다 (MySQL, MariaDB는 지원 안 함)
+  Structured / Server / String
+  이미지를 넣으면 SQL에는 그 이미지의 웹 상의 주소만 text로 들어감
+
+* phpMyAdmin
+  데이터베이스 조작 가능
+
+
+* 닷홈의 Database 접속
+  닷홈 홈페이지 로그인 -> 호스팅 관리 -> 상세보기 -> 하단에 '제공내역' MySQL 관리(UTF-8) 주소를 브라우저에 입력 -> phpMyAdmin 로그인
+
+  내 컴퓨터에 DB 구축하면 다른 사람한테 어떻게 보여줄것?
+  닷홈에 DB 구축해야 한다.
+

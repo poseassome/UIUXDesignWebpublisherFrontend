@@ -1,0 +1,25 @@
+* 이벤트 적용
+
+  javascript 경우,
+  obj . eventHandler = function ( ){  };
+
+  jquery 경우,
+  $(" selector ") . event ( function( ){  });
+
+
+
+* this 사용하기
+
+  $("td:eq(0)").mouseenter(function () {
+        ∥   효과를 받는 대상과 가지는 대상이 같은 경우에 this 사용
+    $("td:eq(0)").addClass("sel");
+  });
+
+
+
+* hover
+
+  hover = mouseenter + mouseout 합쳐진 것으로,
+
+  $("selector").hover(function(){}, function(){});
+  function이 2개가 필요하다.

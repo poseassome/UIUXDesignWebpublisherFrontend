@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>속성 접근</title>
+  <style type="text/css">
+    #big_img {
+      width: 640px;
+      height: 426px;
+    }
+
+    .thumb_img img {
+      width: 152px;
+      height: 101px;
+      margin-right: 5px;
+      cursor: pointer
+    }
+  </style>
+  <script type="text/javascript">
+    function changeImage1() {
+      var big_img = document.getElementById("big_img");
+      big_img.src = "images/img01.jpg";
+    }
+    function changeImage2() {
+      var big_img = document.getElementById("big_img");
+      big_img.src = "images/img02.jpg";
+    }
+    function changeImage3() {
+      var big_img = document.getElementById("big_img");
+      big_img.src = "images/img03.jpg";
+    }
+    function changeImage4() {
+      var big_img = document.getElementById("big_img");
+      big_img.src = "images/img04.jpg";
+    }
+  </script>
+</head>
+
+<body>
+  <p>
+    <img src="images/img01.jpg" id="big_img" alt="원본 이미지" abc="TEST" title="이미지 크게보기">
+  </p>
+  <p class="thumb_img">
+    <img src="images/img01.jpg" onclick="changeImage1()">
+    <img src="images/img02.jpg" onclick="changeImage2()">
+    <img src="images/img03.jpg" onclick="changeImage3()">
+    <img src="images/img04.jpg" onclick="changeImage4()">
+  </p>
+</body>
+
+</html>

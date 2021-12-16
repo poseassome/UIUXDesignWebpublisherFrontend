@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼에 따라 다른 글자색 출력</title>
+  <style tyep="text/css">
+
+  </style>
+
+  <script type="text/javascript">
+    function redColor(g_color) {
+      var txt = document.getElementById("changeText");
+      txt.style.color = g_color;
+    };
+
+  </script>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" onclick="redColor('red')">빨강</button></p>
+  <p><button type="button" onclick="redColor('blue')">파랑</button></p>
+  <p><button type="button" onclick="redColor('green')">초록</button></p>
+
+</body>
+
+</html>

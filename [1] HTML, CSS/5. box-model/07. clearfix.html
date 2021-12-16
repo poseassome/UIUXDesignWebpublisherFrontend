@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float</title>
+  <style type="text/css">
+    #header {
+      width: 800px;
+      height: 150px;
+      background: #e68829;
+      margin: auto;
+    }
+
+    #lnb {
+      width: 200px;
+      height: 300px;
+      background: #399de6;
+      float: left;
+    }
+
+    #content {
+      width: 600px;
+      height: 400px;
+      background: #e040d4;
+      float: left;
+    }
+
+    #footer {
+      width: 1000px;
+      height: 150px;
+      background: #76d34c;
+      /* float: left; */
+      /* clear: both; */
+      margin: auto;
+    }
+
+    #main {
+      margin: auto;
+      width: 800px;
+      /* height 고정 */
+      /* height: 200px; */
+      background: #aaa;
+      /* 가변 3
+      (조건) 3-1. 반드시 자식요소가 float 상태
+             3-2. 부모요소에는 height 사용 안함 */
+      overflow: hidden;
+      /* float된 아이들 높이를 읽어 */
+    }
+
+    /* 가변 1
+    .clearfix {
+      clear: both;
+    } */
+
+    /* 가변 2
+    #main:after {
+      content: " ";
+      display: block;
+      clear: both;
+    } */
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="main">
+    <div id="lnb"></div>
+    <div id="content">
+      <!-- <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p> -->
+    </div>
+    <!-- 가변 1
+    <div class="clearfix"></div> -->
+  </div>
+  <div id="footer"></div>
+</body>
+
+</html>

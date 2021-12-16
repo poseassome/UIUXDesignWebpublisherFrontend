@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>accordion</title>
+  <style type="text/css">
+    div {
+      margin-bottom: 10px;
+    }
+
+    h2,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+
+    p {
+      height: 100px;
+      background: #eee;
+      margin-bottom: 20px;
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      /* 각각 slideDown 적용 */
+      // $(".qna1 h2").click(function () {
+      //   $(".qna1 p").slideDown("fast");
+      // });
+      // $(".qna2 h2").click(function () {
+      //   $(".qna2 p").slideDown("fast");
+      // });
+      // $(".qna3 h2").click(function () {
+      //   $(".qna3 p").slideDown("fast");
+      // });
+
+      /* slideToggle 적용할 수도 있음 */
+      // $(".qna1 h2").click(function () {
+      //   $(".qna1 p").slideToggle("fast");
+      // });
+
+      /* .next() 사용해서 제어하기 */
+      // $("div h2").click(function () {
+      //   $(this).next().slideDown("fast");
+      // });
+
+      /* 펼친 건 닫고 클릭한거 열기 */
+      // $("div h2").click(function () {
+      //   $("div p").slideUp("fast");     // <-- 열려져있는 요소 누르면 문제생김 (다시 접었다가 펴야하니까)
+      //   $(this).next().slideDown("fast");
+      // });
+
+      /* .stop()써서 해소할 수도 있음 (사용x) */
+      // $("div h2").click(function () {
+      //   $("div p").stop().slideUp("fast");
+      //   $(this).next().stop().slideDown("fast");
+      // });
+
+      /* .not()사용해서 클릭한 요소 다음 것 빼고 적용 */
+      $("div h2").click(function () {
+        $("div p").not($(this).next()).slideUp("fast");
+        $(this).next().slideToggle("fast");
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="qna1">
+    <h2>질문 1</h2>
+    <p>답변 1</p>
+  </div>
+  <div class="qna2">
+    <h2>질문 2</h2>
+    <p>답변 2</p>
+  </div>
+  <div class="qna3">
+    <h2>질문 3</h2>
+    <p>답변 3</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+  <style type="text/css">
+    body {
+      font-size: 24px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function win_open(page, name, left) {
+      window.open(page, name, "width=300, height=400, left=" + left + ", top=0");
+    };
+  </script>
+</head>
+
+<body>
+  <button type="button" onclick="win_open('pop01.html','a', 0)">팝업 1</button>
+  <button type="button" onclick="win_open('pop02.html','b', 300)">팝업 2</button>
+</body>
+
+</html>

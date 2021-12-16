@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>속성 접근</title>
+  <style type="text/css">
+    #big_img {
+      width: 640px;
+      height: 426px;
+    }
+
+    .thumb_img img {
+      width: 152px;
+      height: 101px;
+      margin-right: 5px;
+      cursor: pointer
+    }
+  </style>
+  <script type="text/javascript">
+    function changeImage() {
+      // 객체 생성 (내가 제어할 객체를 만듦)
+      var big_img = document.getElementById("big_img");
+
+      /*  속성값 변경하기
+          : 지정한 속성이 없는 경우 해당 속성 추가  */
+      // HTML-DOM
+      // big_img.alt = "큰 이미지 보기"    // <--이미지 클릭하면 alt 변경됨
+      // big_img.abc = "큰 이미지 보기"    // <--원래 속성이 아니어서 바뀌지않음
+
+      /* 속성값 추가 */
+      // big_img.title = "큰 이미지로 보기"    // <--원래 속성이라서 추가 o
+      // big_img.def = "큰 이미지로 보기"    // <--원래 속성아니라서 추가 x
+
+
+      // DOM Core
+      // big_img.setAttribute("alt", "큰 이미지로 보기");
+      /* 값을 변경할 때는 get -> set
+          set은 parameter가 2개 (어떤 속성을, 어떤 값으로) 바꾼다. */
+      // big_img.setAttribute("abc", "큰 이미지로 보기");
+
+      /* 속성값 추가 */
+      big_img.setAttribute("title", "큰 이미지로 보기");
+      big_img.setAttribute("def", "큰 이미지로 보기")
+    }
+  </script>
+</head>
+
+<body>
+  <p>
+    <img src="images/img01.jpg" id="big_img" alt="원본 이미지" abc="TEST" title="이미지 크게보기">
+  </p>
+  <p class="thumb_img">
+    <img src="images/img01.jpg">
+    <img src="images/img02.jpg" onclick="changeImage()">
+    <img src="images/img03.jpg">
+    <img src="images/img04.jpg">
+  </p>
+</body>
+
+</html>

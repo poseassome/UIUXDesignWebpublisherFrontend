@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 중복 검색</title>
+</head>
+
+<body>
+  <!-- <form name="search_id_form" action="serch.php" method="post"> -->
+  <!-- 실제로는 검사해주는 페이지로 보내야하지만
+        아직 그 페이지가 없으니 결과 페이지로 간다. -->
+  <form name="search_id_form" action="result.html" method="get">
+    <fieldset>
+      <legend>아이디 입력</legend>
+      <p>
+        <label for="">아이디</label>
+        <input type="text" name="input_id" id="input_id" value="hong">
+        <!-- hong 이라고 입력했다고 가정한다. -->
+        <button type="submit">검색</button>
+      </p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

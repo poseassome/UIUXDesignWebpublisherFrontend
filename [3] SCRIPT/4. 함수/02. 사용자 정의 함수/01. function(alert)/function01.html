@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수 실행하기</title>
+  <script type="text/javascript">
+    function testFunc() {
+      alert("함수를 실행하였습니다.");
+    };
+    // function은 명령어를 만들기만 하는 문장이므로 위 문장은 실행되지않음.
+    // 계속 기다리고 있는 상태
+
+
+    /* 함수 실행 방법 */
+    // 1️⃣ 함수명 실행
+    // testFunc();
+
+    // 2️⃣ 변수에 의한 실행
+    // var i = prompt("", "");를 응용한다.
+    // var i = testFunc();
+
+    // 3️⃣ 다른 함수에 의한 실행
+    // setTimeout("testFunc()", 5000);
+    // setTimeout("testFunc()", (14 * 60 * 60 + 29 * 60 + 47) * 1000);
+
+    // setTimeout(testFunc, 5000);
+    // "" 없이도 사용 가능하게 되어있음
+
+    /* 위에 문장들 주석처리 안하면 3번 실행되는 격 */
+
+
+    /*
+      ✔ 여기서 알 수 있는 사실
+
+        1) 명령어로 다른 명령어 실행 가능하다.
+        2) Javascript의 시간 단위는 1 / 1000 초
+          Javascript vs HTML 차이점
+            - 연산기능이 있다.
+            - 상호작용기능이 있다.(만들고 필요할 때 사용할 수 있음)
+        3) string은 " "을 사용하지만 " "안에 있다고 모두 string은 아니다.
+    */
+  </script>
+</head>
+
+
+<!-- 4️⃣ 이벤트에 의한 실행 -->
+
+<body onload="testFunc()">
+  <!-- 준비됐음을 ready로 사용하는데 Framwork에서는 있지만 native js에서는 ready가 없음.  ==>  load 사용 -->
+  <!-- 불러들이다, 읽어들이다. -->
+  <!-- load : 준비되다 / onload : 준비되었을 때 -->
+
+</body>
+
+</html>

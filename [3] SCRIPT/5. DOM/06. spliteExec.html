@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 접근</title>
+  <style tyep="text/css">
+    .redText {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .blueText {
+      color: blue;
+      border: 2px solid blue;
+    }
+
+    .greenText {
+      color: green;
+      border: 2px solid green;
+    }
+  </style>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" id="rBtn">빨강</button></p>
+  <p><button type="button" id="bBtn">파랑</button></p>
+  <p><button type="button" id="gBtn">초록</button></p>
+
+  <script type="text/javascript">
+
+    /* 변수 선언 내용 지워도 실행된다. 너무 많이 보편화된 방법이라서 */
+    var rBtn = document.getElementById("rBtn");
+    // 앞 rBtn와 뒤 rBtn은 다른 거다.
+    var bBtn = document.getElementById("bBtn");
+    var gBtn = document.getElementById("gBtn");
+
+
+    /*
+        obj . eventHandler = function( ){   };
+    */
+
+    // 빨강 버튼을 클릭하면 문자의 글자색을 바꾸기
+    rBtn.onclick = function () {      /* 지금 윗 문장은 rBtn을 사용해서 이미 누가, 언제할건지 나타내고 있어서 function뒤에 name을 작성하지 않는다. */
+      var txt = document.getElementById("changeText");
+      txt.className = "redText";
+    };
+
+    bBtn.onclick = function () {
+      var txt = document.getElementById("changeText");
+      txt.className = "blueText";
+    }
+
+    gBtn.onclick = function () {
+      var txt = document.getElementById("changeText");
+      txt.className = "greenText";
+    }
+
+  </script>
+
+</body>
+
+</html>

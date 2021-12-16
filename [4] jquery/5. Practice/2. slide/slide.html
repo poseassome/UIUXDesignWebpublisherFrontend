@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide</title>
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+  <script src="js/jquery-3.6.0.min.js"></script> <!-- 제이쿼리 파일 먼저 불러온다. -->
+  <script src="js/jquery.bxslider.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.slider').bxSlider();
+      $('.gallery').bxSlider({ mode: "fade", auto: true });
+    });
+
+    /* 실행시키는 문장 따로 있는 경우 있음
+          - 보통 이런 경우는 사용자가 옵션을 사용할 수 있도록 해주기위함
+            (사용 방법은 animate에서 css 효과 넣을때랑 동일함) */
+  </script>
+</head>
+
+<!-- css파일 수정하면 여러개에 영향을 주기때문에
+     클래스명으로 특정잡아서 효과없앤다.
+     해당하는 효과 복붙해서, 상위 클래스 적용시킨다. -->
+
+<body>
+  <div class="slider">
+    <div>I am a slide.</div>
+    <div>I am another slide.</div>
+  </div>
+
+  <p>&nbsp</p>
+  <p>&nbsp</p>
+  <p>&nbsp</p>
+  <p>&nbsp</p>
+  <p>&nbsp</p>
+
+  <div class="main_image">
+    <h2>주요소식</h2>
+    <ul class="gallery">
+      <li>
+        <a href="#">
+          <img src="images/img1.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/img2.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/img3.jpg" alt="">
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

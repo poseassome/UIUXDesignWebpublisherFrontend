@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼을 눌러서 서로 다른 내용 출력하기</title>
+  <script type="text/javascript">
+    function testFunc(msg) {  // <---- button이 던진 값을 저장해둘 개체(변수)가 필요함
+      alert(msg);
+    };
+
+  // testFunc(msg) : 여기 변수는 button에게 값을 받아서 alert에게 전달(연결)해주는 역할         ===> [매개변수]
+  // alert(msg)    : 여기 변수는 사용이 목적                                                  ===> [일반변수]
+  </script>
+</head>
+
+<body>
+  <!-- 함수내용이 동일하고 내부 내용이 바뀌는 거면 함수는 1개만 필요하다. -->
+
+  <!-- "11"22"11" 우리는 이렇게 쓰고 싶은데, 장치는 (홀수 ")는 시작 /(짝수 ")은 끝으로 인식한다.     ===> "11"22"33" -->
+  <!-- "testFunc(' ')" '' 사용하여 string 입력 -->
+
+  <button type="button" onclick="testFunc('FIRST')">함수 실행</button>
+  <button type="button" onclick="testFunc('SECOND')">두 번째 버튼</button>
+</body>
+
+</html>

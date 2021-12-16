@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basics</title>
+  <style type="text/css">
+    body {
+      font-size: 20px;
+    }
+
+    #pop {
+      width: 300px;
+      height: 400px;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      background: #09f;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("a:last").click(function () {
+        // $("#pop").hide();
+        // $("#pop").fadeOut();
+        // $("#pop").slideUp();
+        // $("#pop").slideUp(2000);
+        // $("#pop").slideUp("fast");
+        // $("#pop").slideUp("slow");
+        $("#pop").slideUp("slow", function () {
+          alert("slide를 완료하였습니다.");
+        });
+      });
+
+      $("a:first").click(function () {
+        // $("#pop").hide();
+        // $("#pop").fadeIn();
+        // $("#pop").slideDown();
+        // $("#pop").slideDown(2000);
+        // $("#pop").slideDown("fast");
+        // $("#pop").slideDown("slow");
+        $("#pop").slideDown("slow", function () {
+          alert("slide를 완료하였습니다.");
+        });
+      });
+
+      $("a:eq(1)").click(function () {
+        // $("#pop").Toggle();
+        // $("#pop").fadeToggle();
+        // $("#pop").slideToggle();
+        // $("#pop").slideToggle(2000);
+        // $("#pop").slideToggle("fast");
+        // $("#pop").slideToggle("slow");
+        $("#pop").slideToggle("slow", function () {
+          alert("slide를 완료하였습니다.");
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <a href="#">펼치기</a>
+  <a href="#">바꾸기</a>
+  <div id="pop">
+    <a href="#">접기</a>
+  </div>
+</body>
+
+</html>

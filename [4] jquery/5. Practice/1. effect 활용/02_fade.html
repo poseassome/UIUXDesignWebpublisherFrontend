@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fade</title>
+  <style type="text/css">
+    .fade {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .fade span {
+      display: block;
+      width: 200px;
+      height: 200px;
+      background: #000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.6;
+    }
+
+    .fade2 {
+      width: 200px;
+      height: 200px;
+      background: #000;
+      margin-bottom: 20px;
+    }
+
+    .fade2 img {
+      opacity: 0.4;
+    }
+
+    .fade3 {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .fade3 span {
+      display: block;
+      width: 200px;
+      height: 200px;
+      background: #000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.6;
+      transition: opacity 0.5s;
+    }
+
+    .fade3 span:hover {
+      opacity: 0;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      /* $(".fade span").mouseenter(function () {
+        $(this).animate({ opacity: 0 }, 200);
+      });
+      $(".fade span").mouseleave(function () {
+        $(this).animate({ opacity: 0.4 }, 200);
+      }); */
+
+      /* ==> hover로 표현 */
+      $(".fade span").hover(function () {
+        $(this).animate({ opacity: 0 }, 200)
+      }, function () {
+        $(this).animate({ opacity: 0.4 }, 200);
+      });
+
+      $(".fade2 img").hover(function () {
+        $(this).animate({ opacity: 1 }, 200)
+      }, function () {
+        $(this).animate({ opacity: 0.4 }, 200);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- (위) <span> - <img> - <div> (아레) 순으로 존재하는 중 -->
+  <!-- <span>의 투명도를 낮춰야 한다. -->
+  <div class="fade">
+    <a href="#">
+      <img src="images/img02.jpg" width="200" height="200">
+    </a>
+    <span></span>
+  </div>
+
+  <!-- (위) <img> - <div> (아레) 순으로 존재하는 중 -->
+  <!-- <img>에 투명도를 올려야 한다. -->
+  <div class="fade2">
+    <a href="#">
+      <img src="images/img02.jpg" width="200" height="200">
+    </a>
+  </div>
+
+  <!-- (위) <span> - <img> - <div> (아레) 순으로 존재하는 중 -->
+  <!-- <span> 투명도 조절 -->
+  <div class="fade3">
+    <a href="#">
+      <img src="images/img02.jpg" width="200" height="200">
+    </a>
+    <span></span>
+  </div>
+
+  <!-- ★★ 각각 어울리는 동작들을 연결시켜야 함 ★★ -->
+
+</body>
+
+</html>

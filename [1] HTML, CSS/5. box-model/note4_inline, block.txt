@@ -1,0 +1,125 @@
+** 요소  레벨(Element Level) **
+  태그가 어떻게 보여지는가에 대한 구분
+
+  1. 블록 레벨(Block Level)
+    - 독립된 행을 갖는 요소 집합
+    - 크기 지정, 위치 조정 가능(*)
+    - p, h1~h6, ul, il, li, div, table...
+    - 다른 블록 레벨 요소와 인라인 요소 포함 가능
+    - p, h, dt, address 같은 일부 요소는 다른 블록 포함 불가
+
+  2. 인라인 레벨(Inline Level)
+    - 범위 표시 요소의 집합
+    - 크기(예외: img), 위치 조정 불가
+    - a, em, strong, img, span...
+    - 블록 레벨 요소는 포함할 수 없고 인라인 요소만 포함 가능
+    - 높이 속성 사용 불가
+
+
+
+*** 레이아웃 ***
+  각각의 요소들을 필요한 자리에 위치하기
+
+** 레이아웃 기본 구조 **
+  1. header
+    - 상단 로고, GNB, topmenu 등
+    - 주로 페이지 안내(이동)에 관한 요소 포함
+    - 홈페이지 모든 페이지에 노출
+    - GNB : Global Navigation Bar - 메뉴바
+
+  2. content(main)
+    - 페이지별 내용, LNB, 배너, 게시판, 퀵메뉴 등
+    - 해당 페이지에서 나타내고자 하는 내용 작성
+    - LNB : Local Navigation Bar - 사이드 메뉴
+            메인메뉴(대메뉴)에 포함된 하위메뉴(소메뉴)의 집합
+
+  3. footer
+    - 회사나 사이트에 대한 정보
+    - 각종 연락처 정보, 관리자 정보, 약관 및 정책, 카피라이트 등
+
+  4. 기타 요소 (SNS< 검색, 관련 사이틑 등)는 필요한 위치에 추가
+
+
+
+* 여백 속성
+  1. margin
+  2. padding
+
+  (margin은 위치가 바뀌고, padding은 크기가 바뀐다.)
+
+  * margin
+    1. 바깥쪽 여백(위치)
+    2. margin-top / margin-right / margin-bottom / margin-left
+    3. margin : top right bottom left
+       margin : top right bottom (same right)
+       margin : top/bottom right/left
+       margin : all
+    4. margin : auto
+       상하 여백 0, 좌우 여백 동일
+       (블럭 요소 가운데 정렬)
+       = margin: 0 auto
+
+  * text-align : center
+    인라인 요소 가운데 정렬
+
+  * padding
+    1. 안쪽 여백(크기)
+    2. margin 사용법과 동일
+
+  box-sizing은 width를 측정할때 어느 부분을 측정할거냐
+  기본은 content-box임
+  border-box는 padding과 border가 늘어남에 따라 content area가 줄어든다.
+
+  * Box Width : 100%
+    -width: 100% + padding: 100px + border: 100px = 100% + 400px
+
+  * Box Width : auto 
+    - width + padding + border = 100%
+      여기서 padding과 border가 없으면 width: 100%와 width: auto 똑같음
+
+  * box-sizing : border-box
+    -width + padding + border = width
+    -width: 80%; padding:100px; border:100px = 80% + 400px
+    -width: 80%; padding:100px; border:100px; box-sizing:border-box = 80%
+
+
+
+* float
+  1. 수직 구조의 요소를 수평 구조로 변경
+     -크기와 위치를 조정할 수 있는 요소에 적용 -> Block 요소
+  2. 요소의 레벨이 inline-block 형식으로 변경
+     -요소레벨을 강제로 바꾸는구나
+  3. 수평으로 나열될 모든 요소에 float 속성 적용
+  4. none / left / right
+  5. 선택된 요소를 위로 띄우는 속성
+  6. 위로 이동하면서 생긴 빈 자리에 다른 요소가 이동
+  7. 자식 요소의 길이합이 부모 요소의 길이보다 길면
+     부모 요소의 길이를 초과하는 요소들이 아래쪽으로 이동
+     (태그 작성 순)
+  8. 형제와 부모 관계의 요소들끼리만 적용
+
+  *float된 요소들은 부모를 인식하지 못한다.
+
+* clear
+  1. float 속성 해제
+  2. left / right / both
+     -보통 both를 쓴다.
+
+* float이 아닌 clear를 쓰는 이유
+  1. float된 content뒤의 content가 이동하지 않음
+  2. float된 content의 width 합이 전체 width를 넘어가면 넘어간 content는 아래로 내려옴
+  3. margin: auto를 사용하기 위해. (float을 사용하면 margin: auto 사용 못함)
+
+⭐적용 우선순위
+position: absolute / fixed > float > margin: auto (+width, position: relative)
+      -position의 absolute와 fixed는 
+       float보다 우선수위가 높고,
+                                    -margin: auto는 반드시 width랑 같이 써야 하고 
+                                     position이 필요하다면 relative를 쓸 수 있다.
+
+float된 요소들을 가운데 정렬하려면 전체 하나로 묶어서 margin: 0. width: 지정한다.
+
+
+
+게시판에서 내용보기 페이지는 1개이다.
+게시글 양의 따라서 페이지 높이가 달라지기때문에 가변형 레이아웃이 필요하다(view.php)

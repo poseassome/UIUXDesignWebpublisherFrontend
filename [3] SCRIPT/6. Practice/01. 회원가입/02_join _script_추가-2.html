@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <style>
+    body,
+    input,
+    select,
+    option,
+    button {
+      font-size: 24px
+    }
+
+    input[type=checkbox] {
+      width: 24px;
+      height: 24px
+    }
+
+    span {
+      font-size: 14px;
+      color: red;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function form_check() {
+      // 객체생성
+      var uname = document.getElementById("uname");
+      var uid = document.getElementById("uid");
+      var pwd = document.getElementById("pwd");
+      var repwd = document.getElementById("repwd");
+      var mobile = document.getElementById("mobile");
+      var agree = document.getElementById("agree");
+
+
+      // 이름
+      if (uname.value == "") {  // 값이 없다면
+        // if (uname.value != "") // 값이 있다면
+        // alert("이름을 입력하세요.");
+
+        var err_txt = document.querySelector(".err_name");
+        /* 태그도 사용할 수 있음 */
+        err_txt.innerHTML = "<em>이름을 입력하세요.</em>";
+        /* 태그도 글차로 출력됨. */
+        // err_txt.textContent = "<em>이름을 입력하세요.</em>";
+
+        uname.focus();
+        return false;
+      };
+
+      // 아이디
+      if (uid.value == "") {
+        var err_txt = document.querySelector(".err_id");
+        // err_txt. ="을 입력하세요.";
+        err_txt.textContent = "아이디를 입력하세요.";
+
+        uid.focus();
+        return false;
+      };
+      // var uid_len=uid.글자.갯수;
+      var uid_len = uid.value.length;
+      if (uid_len < 4 || uid_len > 12) {
+        var err_txt = document.querySelector(".err_id");
+        err_txt.textContent = "아이디는 4~12글자만 입력할 수 있습니다.";
+        uid.focus();
+        return false;
+      };
+
+      // 비밀번호
+      if (pwd.value == "") {
+        var err_txt = document.querySelector(".err_pwd");
+        err_txt.textContent = "비밀번호를 입력하세요.";
+        pwd.focus();
+        return false;
+      };
+      var pwd_len = pwd.value.length;
+      if (pwd_len < 4 || pwd_len > 8) {
+        var err_txt = document.querySelector(".err_pwd");
+        err_txt.textContent = "비밀번호는 4~8글자만 입력할 수 있습니다.";
+        pwd.focus();
+        return false;
+      };
+
+      // 비밀번호 확인
+      if (pwd.value != repwd.value) {
+        var err_txt = document.querySelector(".err_repwd");
+        err_txt.textContent = "비밀번호를 확인해 주세요.";
+        repwd.focus();
+        return false;
+      };
+
+      // 전화번호
+      var reg_mobile = /^[0-9]{10,11}$/g;    // 범위 정할 수 있음
+      /* ! : 이게 거짓이라면 */
+      if (!reg_mobile.test(mobile.value /* 무엇을.어떤값 */) /* 저 규칙대로 검사해줘. */) {
+        var err_txt = document.querySelector(".err_mobile");
+        err_txt.textContent = "전화번호는 숫자만 입력할 수 있습니다.";
+        mobile.focus();
+        return false;
+      };
+
+
+      // 생년월일
+      var reg_birth = /^[0-9]{8}$/g;    // 범위 정할 수 있음
+      /* ! : 이게 거짓이라면 */
+      if (!reg_birth.test(birth.value)) {
+        var err_txt = document.querySelector(".err_birth");
+        err_txt.textContent = "생년월일은 숫자만 입력할 수 있습니다.";
+        birth.focus();
+        return false;
+      };
+
+
+      /* 아이디 중복확인이랑 주소검색은 팝업창 띄우는 거라 일단 생략 */
+
+      // 약관 동의
+      if (!agree.checked) {
+        alert("약관 동의가 필요합니다.");
+        agree.focus();
+        return false;
+      };
+    };
+
+    // 이메일
+    /* 메일 도메인 입력되는 것은 회원가입 버튼을 눌렀을 때 작동하는 것이 아닌
+    따로 수행되어야하는 일이기 때문에 form function 외부에서 작성 */
+    /* select와 change같이 사용하는게 보편적인 사용방법 */
+    function change_email() {
+      // alert("TEST");        // <-- 동작 확인용
+
+      var email_dns = document.getElementById("email_dns");
+      var email_sel = document.getElementById("email_sel");
+
+      var idx = email_sel.options.selectedIndex;
+      // alert(idx);          // 이거하고 직접입력 해도 값이 나오지않음 (select값이 '바뀔 때'라고 정했으니까.)
+      // var sel_txt = email_sel.options[1].text;
+      // var sel_txt = email_sel.options[1].value;
+      // alert(sel_txt);
+
+      var sel_txt = email_sel.options[idx].value;
+      email_dns.value = sel_txt;
+    };
+
+    function id_search() {
+      // window.open("팝업될 문서 경로", "팝업될 문서이름(같은 이름이면 동일한 창이 여러번 뜨지 않음)", "옵션(위치,크기,바)");
+      window.open("searchID.html", "", "width=600, height=250, left=0, top=0");
+    };
+
+    function addr_search() {
+      window.open("search_addr.html", "", "width=600, height=400, left=0, top=0");
+    }
+
+  </script>
+</head>
+
+<body>
+  <form name="join_form" action="insert.php" method="get" onsubmit="return form_check()">
+    <fieldset>
+      <legend>회원가입</legend>
+      <p>
+        <label for="u_name">이름</label>
+        <input type="text" name="u_name" id="uname">
+        <br>
+        <span class="err_name"></span>
+      </p>
+
+      <p>
+        <label for="uid">아이디</label>
+        <input type="text" name="uid" id="uid">
+        <button type="button" onclick="id_search()">아이디 중복확인</button>
+        <br>
+        <span class="err_id">* 아이디는 4~12글자만 입력할 수 있습니다.</span>
+      </p>
+
+      <p>
+        <label for="pwd">비밀번호</label>
+        <!-- <input type="password" name="pwd" id="pwd"> -->
+        <input type="text" name="pwd" id="pwd">
+        <br>
+        <span class="err_pwd">* 비밀번호는 4~8글자만 입력할 수 있습니다.</span>
+      </p>
+
+      <p>
+        <label for="repwd">비밀번호 확인</label>
+        <!-- <input type="password" name="repwd" id="repwd"> -->
+        <input type="text" name="repwd" id="repwd">
+        <br>
+        <span class="err_repwd"></span>
+      </p>
+
+      <p>
+        <label for="mobile">전화번호</label>
+        <input type="text" name="mobile" id="mobile">
+        <br>
+        <span class="err_mobile">"-"없이 숫자만 입력</span>
+      </p>
+
+      <p>
+        <label for="">이메일</label>
+        <input type="text" name="email_id" id="email_id"> @
+        <input type="text" name="email_dns" id="email_dns">
+        <select name="email_sel" id="email_sel" onchange="change_email()">
+          <option value="">직접 입력</option>
+          <option value="naver.com">NAVER</option>
+          <option value="hanmail.net">DAUM</option>
+          <option value="gmail.com">GOOGLE</option>
+          <!-- option은 event 적용이 안되는 태그다. (onclick 안 됨) -->
+          <!-- select에 보이는 값이 달라지면 값을 보여라. -->
+          <!-- 옵션 무엇이 선택됐는지 알아낸다.
+               그 옵션의 글자를 가져올건지, value를 가져올건지 -->
+        </select>
+      </p>
+
+      <p>
+        <label for="birth">생년월일</label>
+        <input type="text" name="birth" id="birth">
+        <br>
+        <span class="err_birth">* ex) 20211022 </span>
+      </p>
+
+      <p>
+        <label for="postalCode">주소</label>
+        <input type="text" name="postalCode" id="postalCode" size="5">
+        <button type="button" onclick="addr_search()">주소검색</button>
+        <br>
+        <label for="addr1">기본주소</label>
+        <input type="text" name="addr1" id="addr1" size="30">
+        <br>
+        <label for="addr2">상세주소</label>
+        <input type="text" name="addr2" id="addr2" size="30">
+      </p>
+
+      <p>
+        <input type="checkbox" name="agree" id="agree" value="y">
+        <!-- checkbox와 radio는 전송할 값 value를 써야함 / 없으면 on,off로 전송 -->
+        <!-- checkbox는 항상 값이 들어가 있음 -->
+        <label for="agree">약관 동의</label>
+      </p>
+
+      <p>
+        <button type="submit">회원가입</button>
+      </p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

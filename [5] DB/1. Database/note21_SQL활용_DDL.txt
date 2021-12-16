@@ -1,0 +1,98 @@
+** DB 생성 : front **
+  create database front
+    default character set utf8
+    default collate utf8_general_ci;
+
+
+* DB 선택 *
+  use front;
+
+
+* 테이블 생성
+  1. 새로운 테이블 만들기
+    create table 테이블이름(
+      필드명 데이터타입(길이) 제약,
+      필드명 데이터타입(길이) 제약,
+      필드명 데이터타입(길이) 제약,
+      필드명 데이터타입(길이) 제약
+    );
+
+  2. 다른 테이블을 이용한 테이블 생성
+    create table 테이블이름 as select문;
+
+  =========================================
+  게시판 : board
+  -----------------------------------------
+  항목 | 열 이름 | 데이터타입(길이) | 제약
+  -----------------------------------------
+  글 번호 | idx | int | PK, AI
+  제목 | title | varchar(100) | NN
+  내용 | content | text | NN
+  작성자 | author | varchar(20) | NN
+  작성일자 | wr_date | date | NN
+  조회수 | view_count | int | default 0
+  -----------------------------------------
+  =========================================
+
+  create table board(
+    idx int primary key auto_increment,
+    title varchar(100) not null,
+    content text not null,
+    author varchar(20) not null,
+    wr_date date not null,
+    view_count int default 0
+  );
+
+  create table board2 as select title, content, author from board;
+  (게시물이 있다면 그 글도 같이 복제가 됨.)
+
+
+* 테이블 목록 확인
+  show tables;
+
+
+* 테이블 구조 확인
+  describe 테이블이름
+  desc 테이블이름
+
+
+* 테이블 수정
+  1. 열 삭제
+    alter table 테이블이름 drop 삭제할 열이름
+    ex) alter table board drop view_count;
+
+  2. 열 추가
+    alter table 테이블이름 add 열이름 자료형
+    ex) alter table board add view_count varchar(20);
+
+    alter table 테이블이름 add 열이름 자료형 after 필드명; //특정 필드뒤에 추가
+    alter table 테이블이름 add 열이름 자료형 first;
+
+  3. 데이터 타입 변경
+    alter table 테이블이름 modify 열이름 자료형
+    ex) alter table board modify view_count int default 0;
+
+  4. 필드명 변경
+    alter table 테이블이름 change 기존열이름 새로운열이름 자료형
+
+
+* 테이블 이름 변경
+  1. rename table 이전이름 to 새로운이름
+    ex) rename table board to notice;
+
+  2. alter table 이전이름 rename 새로운이름
+    ex) alter table notice rename event;
+
+
+* 테이블 데이터 삭제(DML : delete)
+  1. truncate table 테이블이름
+    ex) truncate table event;
+
+
+* 테이블 삭제
+  1. drop table 테이블이름
+    ex) drop table board2;
+
+
+view_count int 에 기본값 추가
+default '0' 안 됨 --> 문자니까

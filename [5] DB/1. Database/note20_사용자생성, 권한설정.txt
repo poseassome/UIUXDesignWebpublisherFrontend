@@ -1,0 +1,24 @@
+사용자 생성하기
+  root로 mysql 접속한 다음,
+  create user 'tester1'@'localhost' indentified by '1234';
+                            ↑
+          어떤 위치에서 로그인할 수 있는 아이디인지 작성
+
+  생성됐는지 확인하기 위해 exit 또는 quit로 mysql을 종료하고
+  만든 사용자 정보로 로그인 한다.
+
+  bin>mysql -u tester1 -p1234
+  입력하고 Welcome이 표시되면 로그인 성공
+
+  여기서 show databases; 입력하면,
+  root로 로그인했을 때와 다른 database 목록이 출력된다.
+
+
+사용자에 권한 부여
+  MariaDB[(name)]> grant 권한 on DB명.테이블 to '사용자'@'계정';
+
+  ex) MariaDB[(name)]> grant insert on front.members to '사용자'@'계정';
+      - 데이터베이스 안에 있는 모든 테이블
+          MariaDB[(name)]> grant insert on front.* to '사용자'@'계정';
+      - 모든 데이터베이스 안에 있는 모든 테이블
+          MariaDB[(name)]> grant insert on *.* to '사용자'@'계정';

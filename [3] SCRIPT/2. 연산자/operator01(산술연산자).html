@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>산술 연산자</title>
+  <script type="text/javascript">
+    var a, b
+    a = 10;
+    b = 20;
+
+    // document.write(매개변수, 인자, parameter);
+    // 인자는 보통 하나이고, 인자가 없거나 여러개인 명령어도 있음.
+    // document.write는 인자 1개인 명령어
+
+    document.write("<h2>");
+    document.write("a = 10, b = 20");
+    document.write("<hr>");
+    document.write("a + b = " + (a + b));
+    // document.write("a + b = " + a + b);
+    // ["a+b="+10]의 결과값 종류는 [문자]이다.
+    // ㄴ문자 더하기 숫자로 인식 (더하기보다는 연결의 의미로 이해)
+    document.write("<hr>");
+    document.write("a - b = " + (a - b));
+    // document.write("a - b = " + a - b);
+    // ㄴ문자에서 숫자를 뺄 수 없으니까 결과값은 NaN으로 출력
+    document.write("<hr>")
+    //밑에 세 개는 애초에 +보다 우선순위가 없으니까 ()없어도 동일한 결과값이 나옴
+    document.write("a * b = " + (a * b));
+    document.write("<hr>");
+    document.write("a / b = " + (a / b));
+    document.write("<hr>");
+    document.write("a % b = " + (a % b));
+    document.write("</h2>")
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

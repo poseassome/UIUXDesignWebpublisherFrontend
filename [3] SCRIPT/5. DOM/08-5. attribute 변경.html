@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>속성 접근</title>
+  <style type="text/css">
+    #big_img {
+      width: 640px;
+      height: 426px;
+    }
+
+    .thumb_img img {
+      width: 152px;
+      height: 101px;
+      margin-right: 5px;
+      cursor: pointer
+    }
+  </style>
+  <script type="text/javascript">
+    function changeImage(img_url) {
+      // 객체 생성
+      var big_img = document.getElementById("big_img");
+      big_img.src = img_url;
+      // big_img.setAttribute("src", img_url);
+    }
+  </script>
+</head>
+
+<body>
+  <p>
+    <img src="images/img01.jpg" id="big_img" alt="원본 이미지" abc="TEST" title="이미지 크게보기">
+  </p>
+  <p class="thumb_img">
+    <!-- this : 프로그래밍 언어에서 나 자신 -->
+    <img src="images/img01.jpg" onclick="changeImage(this.src)">
+    <img src="images/img02.jpg" onclick="changeImage(this.src)">
+    <img src="images/img03.jpg" onclick="changeImage(this.src)">
+    <img src="images/img04.jpg" onclick="changeImage(this.src)">
+
+    <!-- this의 장점 -->
+    <!-- 이미지 값을 바꿔도 this.src 수정할 필요 없음 -->
+    <!-- 사용하는 이미지 수가 적음 -->
+    <!-- this의 단점 -->
+    <!-- 사용자들이 누르지 않을 수 있는데도 큰 이미지 가져와야함 -->
+
+
+    <!-- 하단에 작은 이미지 사용하고 보여지는 건 큰 이미지로 보여줄 수 있으니까 직접 경로 작성하는 방법도 알아야 함. -->
+  </p>
+</body>
+
+</html>

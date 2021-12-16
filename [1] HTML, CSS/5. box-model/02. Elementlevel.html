@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>요소 레벨</title>
+  <style type="text/css">
+    body {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <a href="#">
+      블럭요소는 블럭 요소와 인라인 요소를 포함할 수 있다.
+    </a>
+  </p>
+
+  <!-- HTML5에서는 예외적으로 <a>는 block요소를 포함할 수 있다. -->
+  <!-- Error -->
+  <a href="#">
+    <p>
+      블럭요소는 블럭 요소와 인라인 요소를 포함할 수 있다.
+    </p>
+  </a>
+
+  <div>
+    <p>
+      블럭요소는 블럭 요소와 인라인 요소를 포함할 수 있다.
+    </p>
+  </div>
+
+  <!-- 예외 요소 -->
+  <!-- Error -->
+  <p>
+  <div>
+    블럭요소는 블럭 요소와 인라인 요소를 포함할 수 있다.
+  </div>
+  </p>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 접근</title>
+  <script type="text/javascript">
+    function printText() {
+      // getElement
+      // var box = document.getElementById("txt_id");    //<--브라우저에서 얘만 적용됨 / 밑에는 적용 안됨
+      // var box = document.getElementsByClassname("txt_cls");
+      // var box = document.getElementsByName("txt_nm");
+      // var box = document.getElementsByTagname("input");
+      // var box = document.getElementsByTagnameNS("localhost", "input");
+
+      /*
+          querySelector : CSS Selector 사용
+          document.querySelector(" CSS Selctor");
+
+          querySelectorAll이 있는데 아직 브라우저에서 완벽히 지원되지 않음
+      */
+
+      // var box = document.querySelector("input");
+      // var box = document.querySelector(".txt_cls");
+      var box = document.querySelector("#txt_id");
+
+      box.value = "글자 출력하기";
+    };
+  </script>
+</head>
+
+<body>
+  <form name="form2" action="" method="">
+    <p>* 버튼을 클릭하면 텍스트 필드에 글자가 나타납니다.</p>
+    <p class=txt_box>
+      <input type="text" name="txt_nm" id="txt_id" class="txt_cls">
+      <button type="button" onclick="printText()">글자 출력</button>
+    </p>
+  </form>
+</body>
+
+</html>

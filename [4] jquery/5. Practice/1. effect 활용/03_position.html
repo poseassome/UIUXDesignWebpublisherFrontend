@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Position</title>
+  <style type="text/css">
+    .m1 {
+      width: 200px;
+      height: 200px;
+      background: url("images/img01.jpg");
+      background-size: 100% 100%;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .m1 span {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 0;
+      top: 160px;
+      background: rgba(0, 0, 0, 0.7);
+      line-height: 200px;
+      font-size: 20px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .m2 {
+      width: 200px;
+      height: 200px;
+      background: url("images/img02.jpg");
+      background-size: 100% 100%;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .m2 span {
+      width: 200px;
+      height: 40px;
+      position: absolute;
+      left: 0;
+      top: 160px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .m3 {
+      width: 200px;
+      height: 200px;
+      background: url("images/img03.jpg");
+      background-size: 100% 100%;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .m3 span {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 0;
+      top: 160px;
+      background: rgba(0, 0, 0, 0.6);
+      transition: top 0.5s
+    }
+
+    .m3:hover span {
+      top: 0;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      /* <span>에 마우스 올려야 동작 */
+      // $(".m1 span").mouseenter(function () {
+      //   $(this).animate({ top: 0 });
+      // });
+
+      /* <div>에 올리면 <span>이 동작 */
+      $(".m1").mouseenter(function () {
+        // mouseover, mouseout는 <div>에만 적용되서 <span>올라오면 가려져서 적용이 안됨. mouseenter는 가려져도 적용받음.
+        $(".m1 span").animate({ top: 0 });
+      });
+      $(".m1").mouseleave(function () {
+        $(".m1 span").animate({ top: 160 });
+      });
+
+      $(".m2").mouseenter(function () {
+        $(".m2 span").animate({ top: 0, height: 200 });
+      });
+      $(".m2").mouseleave(function () {
+        $(".m2 span").animate({ top: 160, height: 40 });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="m1">
+    <span>TEXT SECTION</span>
+  </div>
+
+  <div class="m2">
+    <span></span>
+  </div>
+
+  <div class="m3">
+    <span></span>
+  </div>
+</body>
+
+</html>

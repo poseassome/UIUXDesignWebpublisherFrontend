@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 접근</title>
+  <style tyep="text/css">
+    .redText {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .blueText {
+      color: blue;
+      border: 2px solid blue;
+    }
+
+    .greenText {
+      color: green;
+      border: 2px solid green;
+    }
+  </style>
+
+  <script type="text/javascript">
+    /*
+    javascripot은 html과 공통점으로 한줄한줄 실행된다.
+    -> 지금 첫문장 var rBtn = document~ 가 실행될 때 body는 없는 상태다.
+    -> 그래서 🔴error 발생 (onclick할 게 null 없다.)
+    */
+
+    /* script는 필요한 요소가 다 나온 후 어느 위치든 상관없다. (필요한 위치에 삽입) */
+
+    /* 변수 선언 내용 지워도 실행된다. 너무 많이 보편화된 방법이라서 */
+    /* 지금 이 파일에서는 변수선언 주석처리하면 안됨(에러남) */
+    var rBtn = document.getElementById("rBtn");
+    var bBtn = document.getElementById("bBtn");
+    var gBtn = document.getElementById("gBtn");
+
+    rBtn.onclick = function () {
+      var txt = document.getElementById("changeText");
+      txt.className = "redText";
+    };
+
+    bBtn.onclick = function () {
+      var txt = document.getElementById("changeText");
+      txt.className = "blueText";
+    }
+
+    gBtn.onclick = function () {
+      var txt = document.getElementById("changeText");
+      txt.className = "greenText";
+    }
+
+  </script>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" id="rBtn">빨강</button></p>
+  <p><button type="button" id="bBtn">파랑</button></p>
+  <p><button type="button" id="gBtn">초록</button></p>
+
+</body>
+
+</html>

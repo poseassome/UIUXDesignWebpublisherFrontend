@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 접근</title>
+  <style tyep="text/css">
+    .redText {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .blueText {
+      color: blue;
+      border: 2px solid blue;
+    }
+
+    .greenText {
+      color: green;
+      border: 2px solid green;
+    }
+  </style>
+
+  <script type="text/javascript">
+    /* 문서가 준비가 된 다음에 실행해줘 */
+    window.onload = function () {
+      var rBtn = document.getElementById("rBtn");
+      var bBtn = document.getElementById("bBtn");
+      var gBtn = document.getElementById("gBtn");
+
+      rBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "redText";
+      };
+
+      bBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "blueText";
+      }
+
+      gBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "greenText";
+      }
+    };
+
+    /* script 사용 방법 2가지 */
+    // function에 이름 주고 필요할때 가져다가 쓰던가
+    // id만 주고 사용을 하던가
+  </script>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" id="rBtn">빨강</button></p>
+  <p><button type="button" id="bBtn">파랑</button></p>
+  <p><button type="button" id="gBtn">초록</button></p>
+</body>
+
+</html>

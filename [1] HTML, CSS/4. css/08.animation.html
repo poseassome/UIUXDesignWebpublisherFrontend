@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>애니메이션 효과</title>
+  <style type="text/css">
+    @keyframes anitest {
+      from {
+        opacity: 1.0;
+        transform: rotate(0deg)
+      }
+
+      50% {
+        opacity: 0.1;
+      }
+
+      to {
+        opacity: 1.0;
+        transform: rotate(360deg)
+      }
+    }
+
+    img {
+      animation-name: anitest;
+      animation-delay: 2s;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>animation</h3>
+  <img src="images/bg.jpg" width="320" height="240" alt="애니메이션 효과">
+</body>
+
+</html>

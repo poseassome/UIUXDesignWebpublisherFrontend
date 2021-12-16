@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼을 눌러서 서로 다른 내용 출력하기</title>
+  <script type="text/javascript">
+    function testFunc(s_name, score) {    // <== 내부에서 실행될 변수와 동일한 변수가 필요함
+      /* 알림창 두 번 출력 */
+      alert("이름 : " + s_name);
+      alert("점수 : " + score);
+
+      /* 알림창 한 번 출력 */
+      alert("\'이름\' : " + s_name + "\n점수 : " + score);
+    };
+  </script>
+</head>
+
+<body>
+  <button type="button" onclick="testFunc('김철수', 95)">김철수</button>
+  <button type="button" onclick="testFunc('이영희', '95')">이영희</button>
+
+  <!-- 함수를 만드는 부분과 실행시키는 부분에서 변수는 순차적으로 매칭된다. -->
+  <!-- 내부 실행내용의 순서는 상관없음. -->
+</body>
+
+</html>

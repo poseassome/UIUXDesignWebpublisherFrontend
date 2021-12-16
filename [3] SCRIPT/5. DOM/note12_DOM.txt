@@ -1,0 +1,84 @@
+* 자바스크립트
+  1. 표준 모델 : ECMAScript 6(ES6)
+  2. 라이브러리 : 파일 형태로 제공되는 완성된 효과
+    - jquery.js
+    - angular.js
+    - bootstrap.js (애매 / 여러가지 효과를 가지고 있지만 기본은 css라서)
+
+  3. 서버 관련 스크립트
+    - node.js
+
+  4. 프레임워크
+    - react.js (사용빈도 多)
+    - python (javascript 기반)
+    - vue.js
+    - angular.js (라이브러리에도 있지만 프레임워크에도 있음)
+
+  5. 동작 방식
+    - ajax : 비동기식 스크립트
+    - DOM : HTML 요소 선택
+            (javascript은 HTML 태그에 동작을 부여하는 역할을 수행한다.)
+
+
+* 웹 프로그래밍 흐름도(그림참고)
+  - 사용자가 input에 정보를 입력하면, 입력한 정보는 DataBase에 저장됨
+    옛날에는 input에서 DB로 바로 정보가 전달됐었는데, 이는 보안상의 문제 발생
+    (ex. 회원가입에서 소스보기 하면 다 나옴)
+
+  - 그래서.
+    process가 생김 (insert / update / delete / select 기능 수행)
+
+  - input에 입력한 정보가 process로 전달되어서 기능 수행 후 DB에 저장됨
+
+  - 요청한 정보는 DB에서 process로 전달되어 input에서 result가 보이거나 따로 보일 수 있음
+
+
+  동작가능한 상태를 만들어주는게 node인거고 개발하는 도구가 react, python 등이다.
+
+  순차적으로 옮겨다니면서 일을 진행하는 방식 => " 동기식 "
+  일처리 방식은 똑같은데 페이지가 이동하지 않고(페이지 깜빡임이 없음)
+  결과가 input 입력창에 보임 => " 비동기식 "
+
+    input이 파란페이지에 슬쩍 정보를 주고 파란페이지가 이동하면서 일을 진행하고
+    result를 input에 전달해줌  ==>이런일을 해주는게 Ajax
+
+  <form action=" "> process의 위치를 작성한다.(data 처리할 페이지)
+
+
+===========================================================================
+
+
+** DOM(Document Object Model) 방식 **     // Document-HTML, Object-TAG
+  DOM은 원래 html 용어로,
+  자바스크립트가 태그들을 쉽게 선택할 수 있도록 만든 방식
+
+  - html 요소에 접근하는(태그들을 선택하는) 표준화된 방식
+  - 기존 name 속성과 태그별 접근 방식에서 벗어나 오브젝트의 종류에 상관없이
+    id 속성을 사용하여 요소에 접근하는 방식
+
+
+* getElementById("요소") 객체의 생성
+
+
+** 우선순위 **
+  !important
+  style(inline)    [1000]
+  #b{}             [100]
+  .a{}             [10]
+  p{}              [1]
+
+  <p class="a" id="b" style="color:red"></p>
+  우선순위
+  !important  >  style(inline)  >  id  >  a  >  p
+
+
+
+DOM 방식에서는 태그들이 가지고 있는 속성이나 그 값도 제어가 가능하다.
+
+* DOM 코어 / HTML-DOM : HTML 요소들의 속성 제어
+
+  DOM 코어 : 스크립트가 지원되는 모든 기기에서 사용
+             ex) Object.getAttrribute("src")
+
+  HTML-DOM : 웹 브라우저에서만 사용가능
+             ex) object.src

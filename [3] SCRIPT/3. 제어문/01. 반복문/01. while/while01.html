@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while 반복문1</title>
+  <script type="text/javascript">
+    // 0️⃣
+    // document.write("<p>이 문장을 반복합니다.</p>");
+    // document.write("<p>이 문장을 반복합니다.</p>");
+    // document.write("<p>이 문장을 반복합니다.</p>");
+    // document.write("<p>이 문장을 반복합니다.</p>");
+    // document.write("<p>이 문장을 반복합니다.</p>");
+
+    // 1️⃣
+    // while (조건) {
+    //   조건이 참인 동안 반복할 문장
+    // };
+    // while (a = 5) {
+    //   document.write("<p>이 문장을 반복합니다.</p>");
+    // };
+    // => a는 뭐든 담을 수 있기 때문에 a=5 는 true이고 {문장}을 실행하고,
+    // true였기 때문에 커서가 다시 while로 올라감. (무한반복)
+
+    // 2️⃣
+    // while (a == 5) {
+    //   document.write("<p>이 문장을 반복합니다.</p>");
+    // };
+    // => console tab 보면 a is not defined --> a가 정의되지 않았다.
+
+    // 3️⃣
+    // var a = 1;
+    // while (a == 5) {
+    //   document.write("<p>이 문장을 반복합니다.</p>");
+    // };
+    // => while의 조건이 false가 되어서 실행되지 않고 커서가 다음으로 넘어가는데 다음 내용이 없어서 빈 창 출력
+
+    // 4️⃣
+    // var a = 1;
+    // while (a <= 5) {
+    //   document.write("<p>이 문장을 반복합니다.</p>");
+    // }
+    // true였기 때문에 커서가 다시 while로 올라감. (무한반복)
+    // 커서가 나갈 수 있는 방법은 1){}안에 break;가 있거나 2)while()조건이 거짓이 되거나
+
+    // 5️⃣
+    // var a = 1;    // 초기값, 얼마부터
+    // while (a <= 10) {    // 최종값, 얼마까지
+    //   document.write("<p>이 문장을 반복합니다.</p>");
+    //   a++;    //a=a+1, a+=1  //{}밖에 있으면 실행될 수 없음   // 증감량, 얼만큼씩
+    // }
+    // 반복되는 횟수 조절 가능하다.
+
+    // 6️⃣
+    var a = 1;
+    while (a <= 10) {
+      document.write("<p>" + a + ". 이 문장을 반복합니다.</p>");
+      // 문장 내 변수를 추가할 부분에 "++" 입력
+
+      // 아래와 동일함.
+      // document.write("<p>");
+      // document.write(a);
+      // document.write(". 이 문장을 반복합니다.</p>");
+      a++;
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

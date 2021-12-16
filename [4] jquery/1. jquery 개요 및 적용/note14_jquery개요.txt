@@ -1,0 +1,110 @@
+자바스크립트에서 요소 선택 시
+  <form name="join">
+    <input type="" name="txt" class="box" id="uid">
+
+  <input>을 선택하려면
+    (기존) ; <form> name 사용
+    document.join.txt
+    ------------------------------------------------
+    (DOM) : 태그 종류들 상관없이 선택 가능해짐
+    document.getElementById("uid")
+    ------------------------------------------------
+    (추가)
+    document.querySelector("input OR .box OR #uid")
+
+
+=======================================================
+
+
+** 제이쿼리 : 자바스크립트 라이브러리 **
+  자바스크립트 코드를 간결한 상태로 개발이 가능
+
+
+** 제이쿼리 특징 **
+  1. css 셀렉터★
+    html 내의 엘리먼트들을 손쉽게 표현 및 사용이 가능
+
+  2. 플러그인 아키텍처★
+    이미 개발된 많은 플러그인을 쉽고 빠르게 사용
+    (이미 효과는 만들어져 있어서 우리꺼에 가져다가 쓰기만 하면 됨.)
+
+  3. 메소드 체인
+    여러 개의 기능을 한 줄에 나열하여 불필요한 코드 반복을 줄임
+
+      obj . property = value
+                        ∥
+      obj . method ( parameter )    <- ()는 대부분 명령을 받는다.(tip! 보통 동사를 사용하면 method일 가능성多)
+
+    jquery는 기본적으로 method 방식을 사용한다.
+      -javascript
+        window.alert()
+        window.confirm()                --> 객체 호출 두 번
+
+      =jquery
+        $(window).alert().confirm()      --> 객체 호출 한 번
+
+  4. 크로스 브라우저★
+    브라우저별 발생 이벤트를 각각 지정 해 줄 필요가 없음
+
+  제이쿼리는 여전히 실무에서 빛을 내고 있다. 사용할 수 있는 자원이 많으니까
+
+
+** 적용 방법 **
+  <script type="text/javascript" src="제이쿼리 문서 경로"></script>
+
+  1. local import
+    - 파일을 다운로드 후 html 문서에 임포트
+    - js 파일을 항상 같이 이동
+    - 한국 서버에 있는 js 파일을 다른 나라의 사용자가 접속하려 할 경우
+      속도 저하 발생 가능
+
+  2. CDN (Content Delivery Network)
+    - 특정 웹 사이트에서 제공하고 있는 파일을 링크
+    - 웹 사용 불가 시 스크립트 동작 안됨
+    - jquery.com / google.com / microsoft.com
+
+
+** 다운로드 **
+  j-Query Download
+  http://jquery.com
+
+  1. minified
+    - 파일을 최소화 시키기 위해 불필요한 공백과 줄바꿈 생략
+    - 일반적으로 사용
+
+  2. uncompressed
+    - 코멘트 등 포함
+    - 코드 분석 시 사용
+
+
+jquery는 적용하는 법 빼고 두 가지만 알면 됨  -  1. 함수  2. 문법
+
+* selector($() 함수)      <--   $() 효과를 주고 싶은 아이를 선택할 때 사용
+    ex) <input type="" name="txt" class="box" id="uid">
+        css 에서는    input      / .box      / #uid
+        jquery 에서는 $("input") / $(".box") / $("#uid")
+        script에서는  document.querySelector(" ")
+
+  jquery(선택자).메소드()
+  $(선택자).메소드()
+
+  $(누구한테).어떤효과를()
+  $(누구한테).어떤효과를("")
+  $(누구한테).어떤효과를({ })
+  $(누구한테).어떤효과를(function(){ })
+
+  $(누구한테).어떤효과를().다른효과({ }).다른효과(function(){ })
+
+
+* ready() 메소드
+  1. javascript의 window.onload 와 같은 기능이지만
+     이 기능보다 정확하게 동작
+
+  2. 스크립트가 먼저 작성되고 body 요소가 나중에 작성되기 때문에
+     스크립트 오류가 발생하는 것을 방지
+
+  3. 문서내에 한 번만 선언
+
+  4. $(document).ready(function(){
+        실행할 문정 전체
+      })

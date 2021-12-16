@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 폼</title>
+  <style type="text/css">
+    body,
+    input,
+    select,
+    option,
+    textarea,
+    button {
+      font-size: 24px
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+      width: 24px;
+      height: 24px
+    }
+  </style>
+</head>
+
+<body>
+  <form name="" action="데이터를 처리할 페이지 경로" method="데이터 전송방식">
+    <p>select
+      <select name="" id="">
+        <option value="" checked>항목 1</option>
+        <option value="">항목 2</option>
+        <option value="">항목 3</option>
+        <option value="">항목 4</option>
+      </select>
+    </p>
+
+    <p>select
+      <select name="" id="" size="5" multiple>
+        <option value="">항목 1</option>
+        <option value="">항목 2</option>
+        <option value="">항목 3</option>
+        <option value="">항목 4</option>
+        <option value="">항목 5</option>
+        <option value="">항목 6</option>
+        <option value="">항목 7</option>
+        <option value="">항목 8</option>
+        <option value="">항목 9</option>
+        <option value="">항목 10</option>
+      </select>
+    </p>
+
+    <p>select
+      <select name="" id="" size="10" multiple>
+        <optgroup label="그룹 1">
+          <option value="">항목 1</option>
+          <option value="">항목 2</option>
+          <option value="">항목 3</option>
+          <option value="">항목 4</option>
+          <option value="">항목 5</option>
+        </optgroup>
+        <optgroup label="그룹 2">
+          <option value="">항목 6</option>
+          <option value="">항목 7</option>
+          <option value="">항목 8</option>
+          <option value="">항목 9</option>
+          <option value="">항목 10</option>
+        </optgroup>
+      </select>
+    </p>
+
+    <p>textarea
+      <textarea name="" id="" cols="30" rows="10">TEXT</textarea>
+    </p>
+
+    <p>text
+      <input type="text" name="" id="" value="텍스트" placeholder="아이디" size="10" maxlength="10" minlength="4"
+        readonly="readonly" disabled="disabled">
+    </p>
+
+    <p>password
+      <input type="password" name="" id="" value="아이디">
+    </p>
+
+    <p>checkbox
+      <input type="checkbox" name="" id="" value="A" checked> HTML
+      <input type="checkbox" name="" id="" value="B"> CSS
+      <input type="checkbox" name="" id="" value="C"> JAVASCRIPT
+    </p>
+
+    <p>radio
+      <input type="radio" name="a" id="" value=""> 유
+      <input type="radio" name="a" id="" value=""> 무
+    </p>
+
+    <p>image
+      <input type="image" name="" id="" src="" alt="">
+    </p>
+
+    <p>file
+      <input type="file" name="" id="">
+    </p>
+
+    <p>hidden
+      <input type="hidden" name="" id="">
+    </p>
+
+    <p>button
+      <!-- <input type="button" name="" id="" value="그냥 버튼"> -->
+      <button type="button">그냥 버튼</button>
+    </p>
+
+    <p>submit
+      <!-- <input type="submit" name="" id="" value="전송하기"> -->
+      <button type="submit">전송하기</button>
+    </p>
+
+    <p>reset
+      <!-- <input type="reset" name="" id="" value="다시쓰기"> -->
+      <button type="reset">다시쓰기</button>
+    </p>
+  </form>
+
+</body>
+
+</html>

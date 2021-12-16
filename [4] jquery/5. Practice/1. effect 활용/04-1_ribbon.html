@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ribon pop</title>
+  <style type="text/css">
+    body {
+      overflow-y: scroll;
+      /* 팝업 닫을 때 화면 흔들는거 없애기 위해 사용 */
+    }
+
+    body,
+    div {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      text-align: center;
+      background: url('images/bg_wrap.jpg') repeat-x;
+      /* 이거 지워도 보이는 것은 동일함 */
+      /* position: relative;
+      top: 70px; */
+
+      /* 스크립트 동작 실행하기 위해 다시 작성 */
+      /* position: absolute;
+      top: 70px; */
+      /* <-- p:a를 사용할 때 top:0 주면 브라우저 최상단에 붙기 때문에 70px 줘야함. */
+
+      /* position: relative로 변경 */
+      position: relative;
+      /* relative 특징: 다음 요소들은 얘가 같은 자리에 있다고 생각함. scroll생기는 문제 발생 -->그래서 .pop에 p:a 부여 */
+      /* top: 0px; */
+      /* .pop에 absolute주면서 가리기 때문에 70px으로 변경 */
+
+      top: 70px;
+      /* banner만큼 내려줌 */
+    }
+
+    .pop {
+      background: #a9e3f9 url('images/banner.jpg') no-repeat center;
+      height: 70px;
+      /* 이거 지워도 보이는 것은 동일함 */
+      /* position: absolute;
+      width: 100%; */
+
+      /* 다시 작성 */
+      position: absolute;
+      /* absolute를 주면 무조건 inline-block이 된다.
+        inline-block 특성 : 내부 내용이 없으면 height:0 (content 길이만큼 크기가 생기는 것이기 때문에) */
+      width: 100%;
+      /* absolute나 float은 사용하면 width 사라지기때문에 작성해준다. */
+    }
+
+    /* 요소에 다 position이 있으면 코딩 순서상 밑에 있는 것이 위층에 있음
+        -->  그래서 z-index 사용 */
+
+    .pop a {
+      display: block;
+      width: 38px;
+      height: 38px;
+      background: url('images/close.jpg') no-repeat;
+      text-indent: -9999px;
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $(".pop a").click(function () {
+        // $(".pop").slideUp();
+
+        // $(".wrap").animate({ top: "-70px" });     // <-- 하지만 브라우저에서 동작하지 않음 (script에서 error가 없는데 동작이 안된다? -> html, css에 문제가 있다.)
+
+        // $(".wrap").animate({ top: 0 });     // <-- p:a일 때
+        // $(".wrap").animate({ top: "-70px" });     // <-- p:r일 때
+
+        $(".wrap").animate({ top: 0 });    // <-- css에서 70px 내렸기 때문에 내린만큼 올린다
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- banner -->
+  <div class="pop">
+    <a href="#">닫기</a>
+  </div>
+  <div class="wrap">
+    <header></header>
+    <main>
+      <img src="images/content.jpg" alt="">
+    </main>
+    <footer></footer>
+  </div>
+</body>
+
+<!-- <html>따로 해서 나오는 팝업 창이 사라진 이유?
+        - 사용자가 의도하지않은 창은 자동으로 띄우지 않는다. (1세대 팝업, 브라우저 팝업)
+
+     요즘은 내용이 담김 팝업이 있음 (2세대 팝업, 레이어 팝업)
+        - 사용자의 브라우저 창을 가린다는 문제(단점)이 있음
+
+     그래서 리본 팝업이라는 3세대 팝업 사용 (상단에 현수막처럼 있는 거) -->
+
+<!-- 네이버에서 리본 팝업 닫으면 툭 하면 사라지고
+    '오늘 하루 안보기' 기능이 있어서 새로고침하면 팝업 다시 안나옴
+     쿠팡도 리본 팝업 사용하고, 닫으면 애니메이션으로 사라지지만
+     '오늘 하루 안보기' 기능 동일하다. -->
+
+</html>

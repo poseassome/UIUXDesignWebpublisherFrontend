@@ -1,0 +1,31 @@
+* 사용자 생성
+  create user '아이디'@'호스트(접속하는 위치)' identified by '비밀번호'
+  ex) create user 'tester1@'localhost' identified by '1234';
+
+  1. 접속 위치
+    - 내부 : localhost
+    - 외부 : %
+    - 특정 IP (우리가 사용하는 컴퓨터의 원래 이름(숫자이름))
+
+
+* 권한 확인
+  show grants for '사용자'@'접속위치';
+
+  1. usage : 접속 권한
+
+
+* 사용자 제거
+  drop uesr '아이디'@'접속위치'
+  ex) drop user 'tester1'@'localhost';
+
+
+* grant : 권한 부여
+  grant 권한, 권한 on DB이름.테이블이름 to '아이디'@'접속위치' with 옵션;
+
+  1. tester1 사용자에게 front 라는 DB의 모든 테이블에 select, insert 권한 부여
+    ex) grant select, insert on front.* to 'tester1'@'localhost';
+
+
+* revoke : 권한 회수
+  revoke 권한 on DB.table from '사용자'@'접속위치'
+  ex) revoke all on *.* from 'tester1'@'localhost';

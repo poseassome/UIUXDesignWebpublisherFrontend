@@ -1,0 +1,130 @@
+** UI 설계 : 회원관리(+로그인) **
+
+  * 디렉토리 구성
+    - 전체 : website
+    - 회원관리 : website/members
+
+  * 페이지 구성 : website/members
+    - 회원가입 / 처리 페이지 : join.php / insert.php
+    - 정보확인(수정) / 처리 페이지 : edit.php / edit_ok.php
+    - 회원탈퇴 처리 페이지 : delete.php
+
+
+* 회원가입 : join.php
+------------------------------------------------------------------------------------------------------
+폼 요소 name : join_form
+action : insert.php
+method : post
+------------------------------------------------------------------------------------------------------
+항목 | 요소 | type | name | id | class | 제약(규칙), 기능
+------------------------------------------------------------------------------------------------------
+이름 | input | text | u_name | u_name | u_name | 필수입력
+아이디 | input | text | u_id | u_id | u_id | 필수입력, 4~12글자
+아이디 중복확인 | button | button | o | o | btn | 팝업창 출력
+비밀번호 | input | password | pwd | pwd | pwd | 필수입력, 4~12글자
+비밀번호 확인 | input | password | repwd | repwd | repwd | 비번과 동일
+생년월일 | input | text | birth | birth | birth | o
+우편번호 | input | text | postalCode | postalCode | postalCode | o
+주소검색 | button | button | o | o | btn | 팝업창 출력
+기본주소 | input | text | addr1 | addr1 | addr1 | o
+상세주소 | input | text | addr2 | addr2 | addr2 | o
+이메일 아이디 | input | text | email_id | email_id | email_id | o
+이메일 도메인 | input | text | email_dns | email_dns | email_dns | o
+이메일 도메인 선택 | select | o | email_sel | email_sel | email_sel | 항목 선택 시 도메인 필드에 값 출력
+전화번호 | input | text | mobile | mobile | mobile | 숫자만
+약관동의 | input | checkbox | agree | agree | agree | o
+취소 | button | button | o | o | btn | o
+가입하기 | button | submit | o | o | btn | o
+------------------------------------------------------------------------------------------------------
+
+
+*php 작성
+  hello.php로 test 내용 작성
+  한 줄이라도 php가 들어가면 확장자는 php를 쓴다.
+
+*php 파일 확인
+  코드 작성한다 -> FTP 계정 접속한다 -> 계정에 파일 올린다.
+  -> test는 반드시 브라우저에서 내 홈페이지 주소/파일이름 -> 실행 결과 확인
+  http://higomn05.dothome.co.kr/hello.php
+
+  php 파일은 실시간으로 확인할 수 없기 때문에 위 절차대로 확인해야함.
+  페이지 운영할 때는 문제가 안되는데,
+  But, 개발할 때 트래픽 초과되면 더이상 접속 못함
+
+  닷홈에서 계정을 만들어준 것처럼 똑같은 웹 서버를
+  내 컴퓨터에 만들어서 테스트 진행 ==> 이러한 환경을 만들어주는 아이가 Apache
+  계정에 올리지 않아도 똑같은 웹서버를 제공해줌
+
+*php 환경설정
+  닷홈에서 계속해주는 html 와 동일한 것이 ==> htdocs
+  컴퓨터의 특정폴더가 웹서버의 일을 해줌
+
+  http://localhost 접속
+  localhost --> htdocs 를 나타냄
+  뒤에 파일명을 안 썼으니까 index.php 자동으로 실행하고
+  index.php는 dashboard 안에 있는 index.html 실행해 해서 화면이 보이는 것
+  내가 만든 파일 보려면
+  http://localhost/website/hello.php
+
+  join.html 작성한 것은 join.php로 바꾸고
+  http://localhost/website/members/join.php 접속
+  앞으로는 만들고 새로고침만 하면 된다.
+
+
+
+회원가입을 처리해줄 페이지 생성
+  members 폴더에 insert.php 생성
+  여기는 html 파일이 필요없음 (사용자한테 보여줄 내용이 없으니까)
+  그래서 여기는 전체가 php 코드이다.
+  php도 대,소문자 구분 한다.
+
+======================================================================================================
+
+* DB 설계
+------------------------------------------------------------------------------------------------------
+DB명 : front
+
+create datebase front
+default character set utf8
+default collate utf8_general_ci;
+======================================================================================================
+* table 설계 : members
+------------------------------------------------------------------------------------------------------
+항목 | 필드명 | 자료형(길이값) | 제약
+------------------------------------------------------------------------------------------------------
+인덱스 | idx | int | AI, PK
+이름 | u_name | varchar(20) | NN
+아이디 | u_id | varchar(20) | NN
+비밀번호 | pwd | varchar(20) | NN
+생년월일 | birth | date |
+우편번호 | postalCode | char(5) |
+기본주소 | addr1 | varchar(100) |
+상세주소 | addr2 | varchar(100) |
+이메일 아이디 | email | varchar(50) |
+전화번호 | mobile | varchar(15) |
+가입일 | reg_date | date |
+------------------------------------------------------------------------------------------------------
+create table members(
+  idx int auto_increment Primary key,
+  u_name varchar(20) not null,
+  u_id varchar(20) not null,
+  pwd varchar(20) not null,
+  birth date,
+  postalCode char(5),
+  addr1 varchar(100),
+  addr2 varchar(100),
+  email varchar(50),
+  mobile varchar(15),
+  reg_date date
+);
+------------------------------------------------------------------------------------------------------
+
+!! CHECK !!
+  -html 항목과 DB에서 필요한 항목은 다를 수 있다.
+  -html 항목에서 필요없는 항목 지운다
+    약관동의는 무조건 동의해야되는 것이기 때문에 굳이 저장안한다.
+    (수신동의와는 다르다.)
+  -사용자가 입력한 정보 그대로 저장?
+    주소는 합치지 않고 기본주소, 상세주소 나누어서 저장하는 것이 좋다.
+      ==> 나중에 재사용하기 편함. 주소를 합치면 구분할 수 있는 방법이 없음
+    이메일은 @으로 구분할 수 있으니까 합쳐도 됨

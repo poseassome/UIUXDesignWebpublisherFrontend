@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margin & padding</title>
+  <style type="text/css">
+    #header {
+      width: 800px;
+      height: 200px;
+      background: #ff9300;
+
+      /* margin-top:50px;
+      margin-right:100px;
+      margin-bottom: 150px;
+      margin-left: 200px*/
+
+      /* margin: TOP RIGHT BOTTOM LEFT */
+      /* margin: 50px 100px 150px 200px */
+
+      /* margin: TOP RIGHT BOTTOM (same RIGHT) */
+      /* margin: 50px 100px 150px */
+      /* => margin: 50px 100px 150px 100px */
+
+      /* margin: TOP RIGHT (same TOP) (same RIGHT) */
+      /* margin: 50px 100px */
+      /* => margin: 50px 100px 50px 100px */
+
+      /* margin:100px */
+      /* => margin: 100px 100px 100px 100px */
+    }
+
+    #content {
+      width: 800px;
+      height: 200px;
+      background: #7bd85f;
+      /* margin: auto; */
+      /* margin: 0 auto */
+      /* text-align: center */
+    }
+
+    #footer {
+      width: 800px;
+      height: 200px;
+      background: #3c9df0;
+      /* padding-top:50px;
+      padding-right:100px;
+      padding-bottom:150px;
+      padding-left:200px */
+
+      /* padding: TOP RIGHT BOTTOM LEFT */
+      /* padding: 50px 100px 150px 200px */
+
+      /* padding: TOP RIGHT BOTTOM (same RIGHT) */
+      /* padding: 50px 100px 150px */
+      /* => padding: 50px 100px 150px 100px */
+
+      /* padding: TOP RIGHT (same TOP) (same RIGHT) */
+      /* padding: 50px 100px */
+      /* => padding: 50px 100px 50px 100px */
+
+      /* padding:50px */
+      /* => padding: 50px 50px 50px 50px */
+    }
+
+    /* padding은 안쪽 영역이니까 박스 크기가 바뀔 수 있다. */
+    /* padding과 border도 크기에 영향을 준다. */
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    상단 로고, GNB, topmenu 등
+  </div>
+  <div id="content">
+    페이지별 내용, LNB, 배너, 게시판, 퀵메뉴 등
+  </div>
+  <div id="footer">
+    각종 연락처 정보, 관리자 정보, 약관 및 정책, 카피라이트 등
+  </div>
+</body>
+
+</html>

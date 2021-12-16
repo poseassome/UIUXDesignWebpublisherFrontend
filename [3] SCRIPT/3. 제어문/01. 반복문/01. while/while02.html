@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while 반복문2</title>
+  <style type="text/css">
+    body {
+      font-size: 24px;
+    }
+  </style>
+  <script type="text/javascript">
+    // 컴퓨터는 연산을 차례대로 진행함
+    // 0 + 1 = 1
+    // 1 + 2 = 3
+    // 3 + 3 = 6
+    // 6 + 4 =10
+    // a   b
+    // 변수 2개가 필요하다.
+    // 그리고 이전 연산의 값이 다음 연산 변수에 사용됨.
+    // a = a + b 가 반복되고 있었구나를 알 수 있음
+
+    var a = 0;    // 더해진 값, 다음 연산에 사용할 값
+    var b = 1;    // 차례대로 증가할 값, 초기값
+
+    while (b <= 10) {    //최종값
+      a = a + b;
+      b++;    //증감량
+    };
+    document.write("1부터 " + (b - 1) + "까지의 합은 " + a + "입니다.");
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

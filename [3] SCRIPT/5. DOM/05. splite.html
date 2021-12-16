@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 접근</title>
+  <style type="text/css">
+    .redText {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .blueText {
+      color: blue;
+      border: 2px solid blue;
+    }
+
+    .greenText {
+      color: green;
+      border: 2px solid green;
+    }
+
+    /*
+    .이 클래스를 의미하고 그 뒤가 name이다.
+    . class_name {
+      color: red;
+      border: 2px solid red;
+    }
+
+    #이 클래스를 의미하고 그 뒤가 name이다.
+    # id_name {
+      color: red;
+      border: 2px solid red;
+    }
+    */
+  </style>
+
+  <script type="text/javascript">
+
+    /* script로 css 적용하는 방법 두 번째 */
+    // DOM으로 객체 지정하여 해당 객체의 className 실행
+    // 작성한 여러개의 style을 해당 객체에 적용시킬 수 있다.
+
+    function redColor() {
+      var txt = document.getElementById("changeText");
+      txt.className = "redText";
+    };
+    function blueColor() {
+      var txt = document.getElementById("changeText");
+      txt.className = "blueText";
+    };
+    function greenColor() {
+      var txt = document.getElementById("changeText");
+      txt.className = "greenText";
+    };
+
+
+
+    /* 예시 : <style>에는 .redText에 대한 것만 있을 때 */
+    function redColor() {
+      var txt = document.getElementById("changeText");
+      txt.className = "redText";
+    };
+    function blueColor() {
+      var txt = document.getElementById("changeText");
+      txt.style.color = "blue";
+    };
+    function greenColor() {
+      var txt = document.getElementById("changeText");
+      txt.style.color = "green";
+    };
+
+    // 위 예시 코드에서는 blue, green을 눌러버리면 red는 적용되지않음(border는 적용됨)
+    // css에서 ⭐우선순위⭐가 있다.(이미지 참고)
+
+
+
+    // 스크립트가 실행안될 때 안되는 원인은 꼭 스크립트 때문만이 아니다.
+    //동작될 개체가 필요하고, 어떻게 동작할지 디자인이 필요하고, 어떻게 움직이게 할 건지 움직임이 필요하다.
+
+    // html, css, javascript가 얼마나 잘 맞물려있는가.
+
+  </script>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" onclick="redColor()">빨강</button></p>
+  <p><button type="button" onclick="blueColor()">파랑</button></p>
+  <p><button type="button" onclick="greenColor()">초록</button></p>
+
+</body>
+
+</html>

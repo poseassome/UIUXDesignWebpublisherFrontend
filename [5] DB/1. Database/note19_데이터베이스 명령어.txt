@@ -1,0 +1,89 @@
+MariaDB [(none)]>
+   ↑
+  DBMS
+
+*** 데이터베이스 명령어의 끝은 무조건 세미콜론 ;
+     안하고 엔터누르면 밑줄에 ->(대기) 나타남 (;누르면 됨)
+
+- database 목록 확인할 때 사용 명령어 : show
+    (데이터베이스를 포함한 오브젝트 확인 가능) -테이블, 인덱스 등등
+    show 뒤에 보고싶은 객체 이름 작성 ex) show databases(여러개 보니까)
+- 데이터베이스 목록 중 내가 사용할 거 가져오려면 : use DB명
+- 그 db안에 무슨 table이 있는지 확인하려면 show tables;
+- 데이터베이스 종료 하려면 exit 또는 quit
+============================================================================
+
+* DB 명령어
+  1. DCL
+    - 사용자 권한 설정 및 회수
+    - grand, revoke
+  2. DDL
+    - 데이터 객체 제어
+    - create, alter, drop
+  3. DML
+    - 데이터 조작★
+    - insert, update, delete, select
+
+
+* MariaDB 기본 쿼리
+  1. show : 데이터베이스 & 테이블 목록 확인
+  2. use : 데이터베이스 선택
+
+
+* create
+  1. 객체 생성
+    - DB, table, 사용자, index, ...
+  2. 기본 문법
+    - create 객체 객체명 (하위 요소)
+  3. DB 생성
+    - create database DB명;
+
+
+* 테이블 생성
+  테이블에서 제일 첫 번째 행은 field name이고,
+  그 밑으로 record(date)가 들어간다.
+
+  1. create table 테이블명(
+      필드명 자료형(길이값) 제약조건,
+      필드명 자료형(길이값) 제약조건,
+      필드명 자료형(길이값) 제약조건,
+      ...
+    );
+  2. create table members(idx, u_name, u_id, pwd); 이 정도 필드를 만들겠다 하면,
+     create table members(
+       idx int auto_increment primary key,
+       u_name varchar(20) not null,
+       u_id varchar(20) not null,
+       pwd varchar(20) not null
+     );
+
+
+* 데이터베이스 제약(기본)
+  1. auto_increment : 자동증가, 자동갱신 X, 기본키로 설정
+    ex) 게시글을 10개를 작성했으면 1 ~ 10번이 생긴다.
+        근데 5, 6번을 지우면 마지막 글번호는 여전히 10번이고,
+        여기서 새로운 글을 추가하면 그 글의 번호는 11번이다.
+        (5, 6번이 채워지지 않음)
+  2. primary key : 기본키,  해당 행을 구분하기 위한 고유값을 가지는 필드에 설정
+  3. foreign key : 참조키, 다른 테이블과 연관된 데이터가 입력된 필드에 지정
+  4. not null : 빈 값 허용 안 함
+  5. unique : 중복값 허용 안함
+  6. check : 정해진 값만 입력 가능
+  7. default : 기본값 설정
+
+
+* 사용자 목록 보기
+  1. root로 접속
+  2. use mysql
+  3. desc user;
+    - describe : Access로 따지면 디자인 보기에 해당(테이블 구조를 볼 수 있는 것)
+  4. select host, user, password from user;
+
+
+* 테이블 구조 확인
+ 1. describe 또는 desc 테이블명;
+
+
+* 자료 검색 : select
+  1. 모든 필드 검색 : select * from 테이블명
+  2. 일부 필드 검색 : select 필드명, 필드명, ... form 테이블명;

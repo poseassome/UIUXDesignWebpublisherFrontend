@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+  <style type="text/css">
+    body {
+      font-size: 24px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function win_open() {
+      // window.open("팝업될 문서 경로", "팝업된 문서 이름", "옵션(크기, 위치, bar 표시 등");
+      //팝업된 문서 이름 : 똑같은 이름의 창이 여러 개 뜨지 않게 해주는 역할
+
+      window.open("pop01.html", "a", "width=300, height=400, left=0, top=0");
+
+      /*
+      - 파일 불러오는 방법(4)
+          1. 다른 사이트에 있는 자원을 이용할 때는 http로 시작
+          2. 내부 폴더는 "폴더이름/"
+          3. 나올 때는 "../""
+          4. 끝날 때는 "이름.확장자"
+      */
+    };
+  </script>
+</head>
+
+<body>
+  <button type="button" onclick="win_open()">팝업 1</button>
+  <button type="button">팝업 2</button>
+</body>
+
+</html>

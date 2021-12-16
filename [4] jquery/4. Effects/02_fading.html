@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basics</title>
+  <style type="text/css">
+    body {
+      font-size: 20px;
+    }
+
+    #pop {
+      width: 300px;
+      height: 400px;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      background: #09f;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("a:last").click(function () {
+        // $("#pop").hide();
+        // $("#pop").fadeOut();
+        // $("#pop").fadeOut(2000);
+        // $("#pop").fadeOut("fast");
+        // $("#pop").fadeOut("slow");
+        $("#pop").fadeOut("slow", function () {
+          alert("fadeOut을 완료하였습니다.")
+        });
+      });
+
+      $("a:first").click(function () {
+        // $("#pop").show();
+        // $("#pop").fadeIn();
+        // $("#pop").fadeIn(2000);
+        // $("#pop").fadeIn("fast");
+        // $("#pop").fadeIn("slow");
+        $("#pop").fadeIn("slow", function () {
+          alert("fadeIn을 완료하였습니다")
+        });
+      });
+
+      $("a:eq(3)").click(function () {
+        // $("#pop").Toggle();
+        // $("#pop").fadeToggle();
+        // $("#pop").fadeToggle(2000);
+        // $("#pop").fadeToggle("fast");
+        // $("#pop").fadeToggle("slow");
+        $("#pop").fadeToggle("slow", function () {
+          alert("fadeToggle을 완료하였습니다");
+        });
+      });
+
+      $("a:eq(1)").click(function () {
+        $("#pop").fadeTo("slow", 0.5,);
+
+        /* 동작 후 보이기 누르면 변화 없음
+            * fadeTo의 특징
+              1. 투명도의 최대값이 바뀐다.
+              2. fadeTo로 바뀐 값은 다시 fadeTo로 바꾼다.
+                 (그래서 100%가 필요한 것) */
+      });
+
+      $("a:eq(2)").click(function () {
+        $("#pop").fadeTo("slow", 1);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <a href="#">보이기</a>
+  <a href="#">50%</a>
+  <a href="#">100%</a>
+  <a href="#">바꾸기</a>
+  <div id="pop">
+    <a href="#">감추기</a>
+  </div>
+</body>
+
+</html>
